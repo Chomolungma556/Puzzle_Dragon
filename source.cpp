@@ -44,6 +44,7 @@ int selectedX = -1;
 int selectedY = -1;
 
 bool isLocked = true;
+unsigned int totalScore;
 
 int getConnectedBlockCount(int x, int y, int cellType, int count);
 void eraseConnectedBlocks(int x, int y, int cellType);
@@ -210,6 +211,7 @@ void eraseConnectedBlocks(int x, int y, int cellType)
     }
 
     cells[x][y] = CELL_TYPE_NONE;
+    ++totalScore;
 
     // è„. 
     eraseConnectedBlocks(x, y - 1, cellType);
@@ -278,4 +280,6 @@ void display()
             std::cout << "Å@";
         }
     }
+    std::cout << std::endl;
+    std::cout << "totalScore = " << totalScore;
 }
